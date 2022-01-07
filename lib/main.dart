@@ -6,16 +6,43 @@ import 'package:firebase_core/firebase_core.dart';
 void main() async {
   runApp(MyApp());
   await Firebase.initializeApp();
-  /* FirebaseFirestore.instance
+  //O QuerySnapshot recebe vários documentos
+  /* QuerySnapshot snapshot = await FirebaseFirestore.instance
       .collection("mensagens")
-      .doc("msg2")
-      .set({"texto": "tudo bem?",
-      "from": 'Alex',
-      "read": false
+      .get();
+      snapshot.docs.forEach((d) { 
+        print(d.data());
       }); */
-  FirebaseFirestore.instance
+
+  //Pegando os id
+  /* QuerySnapshot snapshot = await FirebaseFirestore.instance
       .collection("mensagens")
-      .doc("msg2").collection("arquivos").doc().set({"arqName" : "foto.png"});
+      .get();
+      snapshot.docs.forEach((d) { 
+        print(d.data());
+        print(d.id);
+      }); */
+
+  //Alterando os dados de todos pelo id
+  /* QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection("mensagens")
+      .get();
+      snapshot.docs.forEach((d) { 
+        d.reference.update({'lido': true});
+      }); */
+
+  //O DocumentSnapShot recebe só um valor
+  /* DocumentSnapshot snapshot = await FirebaseFirestore.instance
+      .collection("mensagens").doc('msg1')
+      .get();
+      print(snapshot.data()); */
+
+  //Atualização em tempo real
+  FirebaseFirestore.instance.collection('mensagens').snapshots().listen((dado){
+    dado.docs.forEach((d) { 
+      print(d.data());
+    });
+  });
 }
 
 class MyApp extends StatelessWidget {
