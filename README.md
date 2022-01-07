@@ -7,3 +7,4 @@ Uma Aplicação desenvolvida no Curso de Flutter do Professor Daniel Ciolfi
 ##### Criação e configuração de projeto no Firebase
 ##### Entendendo como funciona e criando o banco no Firebase
 ##### Configurar o projeto 
+##### Escrevendo dados no banco
