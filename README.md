@@ -10,4 +10,4 @@ Uma Aplicação desenvolvida no Curso de Flutter do Professor Daniel Ciolfi
 ##### Escrevendo dados no banco
 ##### Ler e manipular os dados no banco
 ##### Ouvir as mudanças no banco em tempo real
-
+##### Enviar texto e imagem para o firebase
